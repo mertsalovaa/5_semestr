@@ -1,0 +1,12 @@
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\bin\Release\netcoreapp3.1\BeautySalon.DOMAIN.deps.json
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\bin\Release\netcoreapp3.1\BeautySalon.DOMAIN.dll
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\bin\Release\netcoreapp3.1\BeautySalon.DOMAIN.pdb
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\bin\Release\netcoreapp3.1\BeautySalon.DATA_ACCESS.dll
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\bin\Release\netcoreapp3.1\BeautySalon.DATA_ACCESS.pdb
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\obj\Release\netcoreapp3.1\BeautySalon.DOMAIN.csprojAssemblyReference.cache
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\obj\Release\netcoreapp3.1\BeautySalon.DOMAIN.AssemblyInfoInputs.cache
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\obj\Release\netcoreapp3.1\BeautySalon.DOMAIN.AssemblyInfo.cs
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\obj\Release\netcoreapp3.1\BeautySalon.DOMAIN.csproj.CoreCompileInputs.cache
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\obj\Release\netcoreapp3.1\BeautySalon.DOMAIN.csproj.CopyComplete
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\obj\Release\netcoreapp3.1\BeautySalon.DOMAIN.dll
+C:\Users\Mertsalova.Iryna\Downloads\Angular-BeautySalon.exam\Angular-BeautySalon.exam\BeautySalon.EXAM\BeautySalon.DOMAIN\obj\Release\netcoreapp3.1\BeautySalon.DOMAIN.pdb
