@@ -34,8 +34,14 @@ class MainController extends Controller
     }
     public function Create(Request $request)
     {
-
+        $posts = Post::query()->get();
+        // Post::query()->array_push($posts );
         return view('post.create', ['title'=> 'Додати пост']);
+    }
+
+    public function GetAll() {
+        $categories = Category::query()->get();
+        return $categories;
     }
 
     public function List(Request $request)
@@ -49,6 +55,7 @@ class MainController extends Controller
 
         $tag->save();
         $posts = Post::query()->paginate(10);
+        $categories = Category::query()->get();
         //dd($posts);
 
 //        $posts = Post::query()->with('Category')->get();
@@ -62,7 +69,7 @@ class MainController extends Controller
         //}
 
         //dd($posts);
-        return view('post.list', ['posts'=> $posts,
+        return view('post.list', ['posts'=> $posts, 'categories'=> $categories,
             'title'=> 'Список постів']);
     }
 }
