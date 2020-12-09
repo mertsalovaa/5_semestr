@@ -19,3 +19,4 @@ if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
 }
 
 require_once __DIR__.'/public/index.php';
+require 'D:\Завантаження\wysiwyg-editor-php-sdk-master.zip\wysiwyg-editor-php-sdk-master/lib/froala_editor.php';

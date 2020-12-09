@@ -18,10 +18,9 @@
                     <h2 class="post-title">
                         {{ $post->title ?? '' }}
                     </h2>
-                    <h3 class="post-subtitle">
-                    {{ $post->description ?? '' }}
-
-                    </h3>
+                    <div >
+                        {!! $post->description ?? '' !!}
+                    </div>
                 </a>
                 <p class="post-meta">Posted by
                     <a href="#">Start Bootstrap</a>

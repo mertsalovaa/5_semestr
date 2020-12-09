@@ -58,7 +58,7 @@ class MainController extends Controller
         $tag->url = "7777";
 
         $tag->save();
-        $posts = Post::query()->paginate(10);
+        $posts = Post::query()->get();
         $categories = Category::query()->get();
         //dd($posts);
 
