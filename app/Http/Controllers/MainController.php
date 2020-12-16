@@ -112,7 +112,8 @@ class MainController extends Controller
                     //->insert($watermark, 'bottom-right', 20, 20)
                     ->encode('jpg')
                     ->save(public_path("images/{$name}"), 70);
-                $url = Storage::url($name);
+                // $url = Storage::url($name);
+                $url = "/images/{$name}";
             }
         }
 
