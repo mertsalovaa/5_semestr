@@ -19,9 +19,8 @@
                     {!! $post->description ?? '' !!}
                 </div>
                 </a>
-                <p class="post-meta">Posted by
-                    <a href="#">Start Bootstrap</a>
-                    on {{ date('F d, Y', strtotime($post->created_at ?? '')) }}</p>
+                <p class="post-meta">Posted by {{ date('F d, Y', strtotime($post->created_at ?? '')) }}</p>
+                <a class="btn btn-light" href="{{ route('post.edit', $post->id) }}">Edit</a>
             </div>
             <hr>
             {{-- <li>--}}
