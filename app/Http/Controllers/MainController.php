@@ -133,8 +133,8 @@ class MainController extends Controller
 
     public function Details($id)
     {
-        $post = Post::query()->findOrFail($id);
-        
+        $post = Post::query()->with("Comments")->findOrFail($id);
+
         return view('post.details', [
             'post' => $post
         ]);
