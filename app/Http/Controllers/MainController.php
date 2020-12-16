@@ -6,6 +6,9 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Storage;
+
+use Intervention\Image\Facades\Image;
 
 class MainController extends Controller
 {
@@ -81,24 +84,58 @@ class MainController extends Controller
 
     public function Store(Request $request)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'description' => 'required',
-        //     'description_short' => 'required',
-        //     'url' => 'required',
-        //     'id_category' => 'required'
-        // ]);
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'description_short' => 'required',
+            'url' => 'required',
+            'id_category' => 'required'
+        ]);
         // dd($request);
+        $url = '';
+        if ($request->hasFile('image')) {
+            //  Let's do everything here
+            if ($request->file('image')->isValid()) {
+                //
+                $validated = $request->validate([
+                    'name' => 'string|max:40',
+                    'image' => 'mimes:jpeg,png|max:1024',
+                ]);
+                $extension = $request->image->extension();
+                $name = sha1(microtime()) . "." . $extension;
+
+                $bigImage = Image::make($request->image->getRealPath());
+                $bigImage->resize(1000, 1000, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })
+                    //->insert($watermark, 'bottom-right', 20, 20)
+                    ->encode('jpg')
+                    ->save(public_path("images/{$name}"), 70);
+                $url = Storage::url($name);
+            }
+        }
+
+
 
         Post::create([
-            'title'=> $request->title,
-            'description'=> $request->description,
+            'title' => $request->title,
+            'description' => $request->description,
             'description_short' => $request->description_short,
-            'url' => $request->url,
+            'url' => $url,
             'id_category' => $request->id_category
         ]);
 
         return redirect()->route('post.list')
             ->with('success', 'Post created successfully.');
+    }
+
+    public function Details($id)
+    {
+        $post = Post::query()->findOrFail($id);
+        
+        return view('post.details', [
+            'post' => $post
+        ]);
     }
 }

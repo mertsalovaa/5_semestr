@@ -3,7 +3,7 @@
 @section('content')
 <h1>{{$title}}</h1>
 
-<form method="post" action="{{ route('post.store') }}">
+<form method="post" action="{{ route('post.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="form-group row">
         <label for="title" class="col-sm-2 col-form-label">Title</label>
@@ -15,6 +15,12 @@
         <label for="description_short" class="col-sm-2 col-form-label">Short description</label>
         <div class="col-sm-10">
             <input type="text" name="description_short" class="form-control" id="description_short" placeholder="Short description">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="image" class="col-sm-2 col-form-label">Choose Image</label>
+        <div class="col-sm-10">
+            <input id="image" type="file" name="image">
         </div>
     </div>
     <!-- <div class="form-group row">

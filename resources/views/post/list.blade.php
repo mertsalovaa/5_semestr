@@ -5,22 +5,19 @@
 @section('content')
 <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
-        @foreach($posts as $post)
-
-        @endforeach
-
         <h1>{{$title}}</h1>
         <ul>
             @foreach($posts as $post)
-
             <div class="post-preview">
-                <a href="post.html">
+                <a href="{{ route('post.details', $post->id) }}">
                     <h2 class="post-title">
+
                         {{ $post->title ?? '' }}
                     </h2>
-                    <div >
-                        {!! $post->description ?? '' !!}
-                    </div>
+                </a>
+                <div>
+                    {!! $post->description ?? '' !!}
+                </div>
                 </a>
                 <p class="post-meta">Posted by
                     <a href="#">Start Bootstrap</a>
