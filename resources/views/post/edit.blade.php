@@ -5,12 +5,8 @@
 
 <form method="post" action="{{ route('post.storeEdit') }}" enctype="multipart/form-data">
     @csrf
-    <div class="form-group row">
-        <label for="id" class="col-sm-2 col-form-label">Id</label>
-        <div class="col-sm-10">
-            <input disabled value="<?php echo $post->id; ?>" type="text" name="id" class="form-control" id="id" placeholder="Id">
-        </div>
-    </div>
+    <input type="hidden" value="<?php echo $post->id; ?>" type="text" name="id" class="form-control" id="id" placeholder="Id">
+
     <div class="form-group row">
         <label for="title" class="col-sm-2 col-form-label">Title</label>
         <div class="col-sm-10">
@@ -47,9 +43,23 @@
             <textarea id="description" value="<?php echo $post->description; ?>" name="description"></textarea>
         </div>
     </div>
-    
+
     <input class="btn btn-success" name='submit' type="submit" value='Save' />
+
+    @if(count($errors))
+    <div class="form-group">
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+    @endif
 </form>
+
+
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@3.1.0/js/froala_editor.pkgd.min.js"></script>
 

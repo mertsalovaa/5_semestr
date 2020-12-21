@@ -141,7 +141,7 @@ class MainController extends Controller
     public function Edit($id)
     {
         $post = Post::query()->findOrFail($id);
-        return view('post.edit', ['post' => $post, 'id_post' => $id, 'title' => 'Додати пост']);
+        return view('post.edit', ['post' => $post, 'title' => 'Редагувати пост']);
     }
 
     public function StoreEdit(Request $request)
@@ -149,51 +149,17 @@ class MainController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'description_short' => 'required',
-            'url' => 'required',
-            'id_category' => 'required'
+            'description_short' => 'required'
         ]);
-        // dd($request);
-        $url = '';
-        // if ($request->hasFile('image')) {
-        //     //  Let's do everything here
-        //     if ($request->file('image')->isValid()) {
-        //         //
-        //         $validated = $request->validate([
-        //             'name' => 'string|max:40',
-        //             'image' => 'mimes:jpeg,png|max:1024',
-        //         ]);
-        //         $extension = $request->image->extension();
-        //         $name = sha1(microtime()) . "." . $extension;
-
-        //         $bigImage = Image::make($request->image->getRealPath());
-        //         $bigImage->resize(1000, 1000, function ($constraint) {
-        //             $constraint->aspectRatio();
-        //             $constraint->upsize();
-        //         })
-        //             //->insert($watermark, 'bottom-right', 20, 20)
-        //             ->encode('jpg')
-        //             ->save(public_path("images/{$name}"), 70);
-        //         // $url = Storage::url($name);
-        //         $url = "/images/{$name}";
-        //     }
-        // }
 
         $index = 0;
-        foreach (Post::query()->get() as $post) {
-            if ($post->id == $request->id) {
-                $post->title = $request->title;
-                $post->description = $request->description;
-                $post->description_short = $request->description_short;
-                $post->url = $request->url;
-
-                $index++;
-            } else {
-                $index++;
-            }
-        }
-
+        $post = Post::find($request->get('id'));
+        $post->title = $request->get('title');
+        $post->description = $request->get('description');
+        $post->description_short = $request->get('description_short');
+        
+        $post->save();
         return redirect()->route('post.list')
-            ->with('success', 'Post created successfully.');
+            ->with('success', 'Post edited successfully.');
     }
 }
