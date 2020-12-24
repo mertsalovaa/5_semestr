@@ -20,6 +20,21 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact.html">Contact</a>
                 </li>
+                @if(auth()->check())
+                    <li class="nav-item">
+                        <a  class="nav-link" href="#">{{auth()->user()->name}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Вихід</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="/register">Реєструватися</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/login">Вхід</a>
+                    </li>
+                @endif
             </ul>
         </div>
     </div>

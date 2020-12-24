@@ -6,7 +6,9 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 use Intervention\Image\Facades\Image;
 
@@ -157,9 +159,58 @@ class MainController extends Controller
         $post->title = $request->get('title');
         $post->description = $request->get('description');
         $post->description_short = $request->get('description_short');
-        
+
         $post->save();
         return redirect()->route('post.list')
             ->with('success', 'Post edited successfully.');
+    }
+
+    public function Login()
+    {
+        return view('post.login');
+    }
+
+    public function LoginStore()
+    {
+        if (auth()->attempt(request(['email', 'password'])) == false) {
+            return back()->withErrors([
+                'message' => 'Пошту і пароль вказано не корентно!'
+            ]);
+        }
+
+        return redirect()->to('/posts');
+    }
+
+    public function Logout()
+    {
+        auth()->logout();
+
+        return redirect()->to('/posts');
+    }
+
+    public function Register()
+    {
+        return view('post.register');
+    }
+
+    public function RegisterStore()
+    {
+        $this->validate(request(), [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed'
+        ],
+        [
+            'name.required' => "Поле ім'я є обов'язковим!",
+            'email.required'=> "Пошта є побовязкове поле",
+            'email.email'=> "Не коретно вказано пошту",
+            'password.required'=> "Вкажіть поле пароль"
+        ]);
+
+        $user = User::create(request(['name', 'email', 'password']));
+
+        auth()->login($user);
+
+        return redirect()->to('/posts');
     }
 }

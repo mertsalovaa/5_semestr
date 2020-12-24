@@ -25,3 +25,10 @@ Route::post('/posts/store', [\App\Http\Controllers\MainController::class, 'Store
 Route::post('/posts/storeEdit', [\App\Http\Controllers\MainController::class, 'StoreEdit'])->name("post.storeEdit");
 Route::post('/posts/upload', [\App\Http\Controllers\MainController::class, 'UploadImage']);
 Route::get('/posts/details/{id}', [\App\Http\Controllers\MainController::class, 'Details'])->name("post.details");
+
+Route::get('/register', [\App\Http\Controllers\MainController::class, 'Register'])->name("post.viewRegister");
+Route::post('/register/store', [\App\Http\Controllers\MainController::class, 'RegisterStore'])->name("post.registerStore");
+
+Route::get('/logout', [\App\Http\Controllers\MainController::class,'Logout']);
+Route::get('/login', [\App\Http\Controllers\MainController::class, 'Login'])->name("post.viewLogin");
+Route::post('/login/store', [\App\Http\Controllers\MainController::class, 'LoginStore'])->name('post.login');
